@@ -16,6 +16,7 @@ import por4 from "../assets/por4.webp";
 import por5 from "../assets/por5.webp";
 import por7 from "../assets/por7.webp";
 import por8 from "../assets/por8.webp";
+import por9 from "../assets/por9.png";
 import TiendajsN from "../assets/TiendajsN.webp";
 
 import { ThemeContext } from "../components/ThemeContex";
@@ -95,18 +96,35 @@ const ProjectStyled = styled.section`
       width: 70%;
       margin-bottom: 2rem;
     }
-
-    /* .proCont {
-      max-width: 90%;
-      grid-template-columns: 8rem 8rem;
-      background-color: aquamarine;
-    } */
   }
 
   @media screen and (min-width: 1024px) {
     .arriba {
       width: 50%;
       margin-bottom: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .proCont {
+      width: 33%;
+      min-height: 25rem;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 15rem 15rem;
+    }
+
+    .cuadros {
+      width: 15rem;
+      height: 15rem;
+    }
+
+    .Ico {
+      margin-top: 10px;
     }
   }
 `;
@@ -261,18 +279,14 @@ const Projects = () => {
         </div>
         <div className={`cuadros ${!show && "none"}`}>
           <div className="Cimg">
-            <img className="fot" src={por7} alt="Tienda" />
+            <img className="fot" src={por9} alt="Tienda" />
           </div>
           <div className="Ico">
             <div className="IcoD1">
-              <AiFillHtml5 size="1.3rem" color="#E44D26" />
-              <DiCss3 size="1.3rem" color="#264de4" />
+              <DiReact size="1.3rem" color="#61DBFB" />
             </div>
             <div className="IcoD2">
-              <a
-                href="https://shoping-computers.netlify.app/#view1"
-                target="_blank"
-              >
+              <a href="https://tiendareactapp.netlify.app/" target="_blank">
                 <BsEyeFill size="1rem" color="#000" />
               </a>
             </div>

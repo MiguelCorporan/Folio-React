@@ -51,6 +51,46 @@ const SkillStyled = styled.section`
     font-size: 0.6rem;
   }
 
+  .htm {
+    font-size: 2.5rem;
+  }
+
+  .css {
+    font-size: 2.5rem;
+  }
+
+  .js {
+    font-size: 2.5rem;
+  }
+
+  .rea {
+    font-size: 2.5rem;
+  }
+
+  .fire {
+    font-size: 2.5rem;
+  }
+
+  .boo {
+    font-size: 2.5rem;
+  }
+
+  .nod {
+    font-size: 2.5rem;
+  }
+
+  .exp {
+    font-size: 2.5rem;
+  }
+
+  .mon {
+    font-size: 2.5rem;
+  }
+
+  .gi {
+    font-size: 2.5rem;
+  }
+
   @media screen and (min-width: 600px) {
     .arriba {
       width: 70%;
@@ -81,6 +121,52 @@ const SkillStyled = styled.section`
       width: 25%;
     }
   }
+
+  @media screen and (min-width: 1600px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .htm {
+      font-size: 4rem;
+    }
+
+    .css {
+      font-size: 4rem;
+    }
+
+    .js {
+      font-size: 4rem;
+    }
+
+    .rea {
+      font-size: 4rem;
+    }
+
+    .fire {
+      font-size: 4rem;
+    }
+
+    .boo {
+      font-size: 4rem;
+    }
+
+    .nod {
+      font-size: 4rem;
+    }
+
+    .exp {
+      font-size: 4rem;
+    }
+
+    .mon {
+      font-size: 4rem;
+    }
+
+    .gi {
+      font-size: 4rem;
+    }
+  }
 `;
 const Skills = () => {
   const { theme } = useContext(ThemeContext);
@@ -96,51 +182,51 @@ const Skills = () => {
       <div className="AllSkill">
         <div className="los1">
           <div>
-            <AiFillHtml5 size="2.5rem" color="#E44D26" />
+            <AiFillHtml5 className="htm" color="#E44D26" />
             <p className="Ps">Html</p>
           </div>
           <div>
-            <DiCss3 size="2.5rem" color="#264de4" />
+            <DiCss3 className="css" color="#264de4" />
             <p className="Ps">Css</p>
           </div>
           <div>
-            <TbBrandJavascript size="2.5rem" color="#f0db4f" />
+            <TbBrandJavascript className="js" color="#f0db4f" />
             <p className="Ps">Java Script</p>
           </div>
         </div>
 
         <div className="los1">
           <div>
-            <FaBootstrap size="2.5rem" color="#563d7c" />
+            <FaBootstrap className="boo" color="#563d7c" />
             <p className="Ps">Bootstrap</p>
           </div>
           <div>
-            <DiReact size="2.5rem" color="#61DBFB" />
+            <DiReact className="rea" color="#61DBFB" />
             <p className="Ps">React</p>
           </div>
           <div>
-            <SiFirebase size="2.5rem" color="#FFA000" />
+            <SiFirebase className="fire" color="#FFA000" />
             <p className="Ps">Fire base</p>
           </div>
         </div>
 
         <div className="los1">
           <div>
-            <FaNodeJs size="2.5rem" color=" #3C873A" />
+            <FaNodeJs className="nod" color=" #3C873A" />
             <p className="Ps">Node Js</p>
           </div>
           <div>
-            <SiExpress size="2.5rem" color=" #68A063" />
+            <SiExpress className="exp" color=" #68A063" />
             <p className="Ps">Express</p>
           </div>
           <div>
-            <DiMongodb size="2.5rem" color="#4DB33D" />
+            <DiMongodb className="mon" color="#4DB33D" />
             <p className="Ps">MongoDB</p>
           </div>
         </div>
         <div className="los2">
           <div className="medio">
-            <FaGitSquare size="2.5rem" color="#F1502F" />
+            <FaGitSquare className="gi" color="#F1502F" />
             <p className="Ps G">Git</p>
           </div>
         </div>

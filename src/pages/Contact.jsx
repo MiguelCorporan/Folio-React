@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import DarkMode from "../components/DarkMode";
 import { BsWhatsapp, BsInstagram, BsGithub, BsLinkedin } from "react-icons/bs";
@@ -108,8 +108,10 @@ const ContactStyled = styled.section`
     font-size: 12px;
   }
 
-  .login-box form a.raya {
+  .login-box form .raya {
     position: relative;
+    min-height: 100%;
+    min-width: 100%;
     display: inline-block;
     padding: 10px 20px;
     color: #338b9c;
@@ -123,7 +125,7 @@ const ContactStyled = styled.section`
     margin-right: auto;
   }
 
-  .login-box a.raya:hover {
+  .login-box .raya:hover {
     background: #338b9c;
     color: #fff;
     border-radius: 5px;
@@ -131,12 +133,12 @@ const ContactStyled = styled.section`
       0 0 20px #338b9c;
   }
 
-  .login-box a.raya span {
+  .login-box .raya span {
     position: absolute;
     display: block;
   }
 
-  .login-box a.raya span:nth-child(1) {
+  .login-box .raya span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -145,7 +147,7 @@ const ContactStyled = styled.section`
     animation: ${btnanim1} 1s linear infinite;
   }
 
-  .login-box a.raya span:nth-child(2) {
+  .login-box .raya span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -155,7 +157,7 @@ const ContactStyled = styled.section`
     animation-delay: 0.25s;
   }
 
-  .login-box a.raya span:nth-child(3) {
+  .login-box .raya span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -164,7 +166,7 @@ const ContactStyled = styled.section`
     animation: ${btnanim3} 1s linear infinite;
     animation-delay: 0.5s;
   }
-  .login-box a.raya span:nth-child(4) {
+  .login-box .raya span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -176,6 +178,33 @@ const ContactStyled = styled.section`
 
   h2 {
     text-align: center;
+  }
+  .area {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    caret-color: #338b9c;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #585757;
+    outline: none;
+    padding-left: 10px;
+    background: transparent;
+    resize: none;
+  }
+  .bt {
+    width: 5rem;
+    height: 2.5rem;
+    position: relative;
+  }
+  .send {
+    font-size: 1rem;
+    position: absolute;
+    top: 0.7rem;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 
   .redes {
@@ -221,13 +250,95 @@ const ContactStyled = styled.section`
       width: 24rem;
     }
   }
+
+  @media screen and (min-width: 1600px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .login-box {
+      position: relative;
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 3rem 1rem;
+      border-radius: 1rem;
+      /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+
+      box-shadow: ${({ theme: { textColor } }) => textColor} 0px 3px 8px;
+    }
+  }
 `;
 
 const Contact = () => {
+  const [message, setmessage] = useState({});
+
   const {
     theme,
     theme: { Bcolor },
   } = useContext(ThemeContext);
+
+  const Envio = (e) => {
+    e.preventDefault();
+
+    const email = "Mcorporan536@gmail.com";
+
+    //const url = `https://formsubmit.co/ajax/${email}`;
+
+    fetch(`https://formsubmit.co/ajax/${email}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(message),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error))
+      .finally(() => e.target.reset());
+
+    /* fetch(url, {
+      method: "POST",
+      headers: {
+        
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(message),
+    })
+      .then((res) => (res.ok ? res.json() : Promise.reject("hubo un error")))
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error)); */
+
+    /*  const send = () => {
+      fetch("https://formsubmit.co/ajax/Mcorporan536@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: inputName.value,
+          email: inputEmail.value,
+          message: inputArea.value,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          inputName.classList.remove("success", "error");
+          inputEmail.classList.remove("success", "error");
+          inputArea.classList.remove("success", "error");
+          form.reset();
+        })
+        .catch((error) => console.log(error));
+    }; */
+  };
+  const handleChange = (e) =>
+    setmessage({ ...message, [e.target.name]: e.target.value });
 
   return (
     <ContactStyled className="section" theme={theme}>
@@ -236,27 +347,47 @@ const Contact = () => {
         <DarkMode />
       </div>
       <div className="login-box">
-        <form className="Elfor">
+        <form className="Elfor" onSubmit={Envio}>
           <h2>Contact me</h2>
+
           <div className="user-box">
-            <input type="text" name="" required="" placeholder="name" />
+            <input
+              type="text"
+              name="text"
+              required=""
+              placeholder="name"
+              onChange={handleChange}
+            />
           </div>
           <div className="user-box">
             <input
               type="email"
-              name=""
+              name="email"
               required=""
               placeholder="Email address"
+              onChange={handleChange}
             />
           </div>
+
+          <textarea
+            className="area"
+            name="message"
+            cols="30"
+            rows=""
+            placeholder="type your message"
+            onChange={handleChange}
+          ></textarea>
+
           <div className="center">
-            <a href="#" className="raya">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Submit
-            </a>
+            <button type="submit" className="bt">
+              <span className="send">enviar</span>
+              <div href="#" className="raya">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
           </div>
           <div className="redes">
             <a

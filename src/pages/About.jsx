@@ -27,6 +27,9 @@ const AboutStyled = styled.section`
   p {
     width: 70%;
     text-align: center;
+    /* letter-spacing: 4px;
+    word-spacing: 10px;
+    line-height: 20px; */
   }
   .circles {
     display: flex;
@@ -38,6 +41,22 @@ const AboutStyled = styled.section`
     height: 3rem;
     background-color: aqua;
     border-radius: 50%;
+  }
+
+  .htm {
+    font-size: 2.5rem;
+  }
+
+  .css {
+    font-size: 2.5rem;
+  }
+
+  .js {
+    font-size: 2.5rem;
+  }
+
+  .rea {
+    font-size: 2.5rem;
   }
 
   @media screen and (min-width: 600px) {
@@ -73,6 +92,40 @@ const AboutStyled = styled.section`
       text-align: center;
     }
   }
+
+  @media screen and (min-width: 1600px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    img {
+      width: 150px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    .htm {
+      font-size: 4rem;
+    }
+
+    .css {
+      font-size: 4rem;
+    }
+
+    .js {
+      font-size: 4rem;
+    }
+
+    .rea {
+      font-size: 4rem;
+    }
+  }
 `;
 
 const About = () => {
@@ -92,10 +145,10 @@ const About = () => {
         experiencia de usuario posible.
       </p>
       <div className="circles">
-        <AiFillHtml5 size="2.5rem" color="#E44D26" />
-        <DiCss3 size="2.5rem" color="#264de4" />
-        <TbBrandJavascript size="2.5rem" color="#f0db4f" />
-        <DiReact size="2.5rem" color="#61DBFB" />
+        <AiFillHtml5 className="htm" color="#E44D26" />
+        <DiCss3 className="css" color="#264de4" />
+        <TbBrandJavascript className="js" color="#f0db4f" />
+        <DiReact className="rea" color="#61DBFB" />
       </div>
     </AboutStyled>
   );
